@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Notes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+</head>
+<body>
+   <div class="main h-screen w-screen p-6 bg-zinc-900 text-white">
+    <nav class="flex items-center justify-between h-[10%] p-10">
+        <h2 class="font-[500] text-[20px]">Notes</h2>
+        <div class="nav-1 mr-[80px] flex items-center justify-center gap-6">
+            <a class="font-[500] text-[15px] mr-2" href="/home">Home</a>   
+            <div>
+        </div>
+      </nav> 
+     <div class="flex items-center gap-8 ml-10 mt-5 ">
+    <a class="flex gap-2 bg-blue-500 px-2 py-1 rounded-lg text-white w-28" href=""><i class="ri-git-repository-private-line"></i><h2>Encrypted</h2></a>
+    <i class="ri-eye-off-line bg-gray-500 font-[500] px-3 py-1 rounded-lg text-[15px]"></i>
+  <h2>Share as link <i class="ri-share-line"></i></h2>
+  <a class="bg-red-500 text-white px-4 py-2 rounded-lg" href="/delete/<%= users._id %>">Delete</a>
+  <a class="bg-yellow-500 text-white px-4 py-2 rounded-lg" href="/edit/<%= users._id %>">Edit</a>
+     </div>
+     <h2 class="mt-10 text-gray-400 text-[15px] font-[500] px-10">Created on <%= users.date %></h2>
+     <h1 class="text-[35px] font-[500] mt-3 px-10"><%= users.title %></h1>
+     <h3  class=" text-[20px] font-[500] mt-3 px-10"><%= users.details %></h3>
+   </div>
+   
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+<link rel="stylesheet" href="/styleseets/style.css">
+
+</head>
+<body>
+   <div class="main h-screen w-screen p-6 ">
+    <nav class="flex items-center justify-between h-[10%] p-3">
+        <h2 class="font-[500] text-[30px] mt-5 ">Notes</h2>
+        <div class="nav-1 mr-[10px] mt-5  flex items-center justify-center gap-6 ">
+            <a class="font-[500] text-[15px] mr-2 bg-blue-500 text-white px-4 py-2 rounded-lg" href="/new">Create New Notes</a>   
+            <a class="font-[500] text-[15px] mr-2 bg-blue-500 text-white px-4 py-2 rounded-lg" href="/profile/uplode">Upload Profile</a>  
+            <div class="">
+              <body class="theme-white">
+                <div class="flex items-center gap-3 ">
+                    <span id="icon-1" class="icon"><i class="ri-moon-line text-white bg-blue-800 p-3 rounded-[50%] "></i></span>
+                    <span id="icon-2" class="icon"><i class="ri-sun-line text-white bg-yellow-400 p-3 rounded-[50%]"></i></span>
+                    <a href="/logout" class="bg-red-500 text-white px-4 py-2 rounded-lg" >Logout</a> 
+                </div>
+            
+            </div>     
+        </div>
+      </nav> 
+    <div class="flex gap-3 ml-3 mt-5 items-center justify-start">
+      <img class="h-16 w-16 rounded-lg object-cover  overflow-hidden" src="/images/uploads/<%= users.profilepic %>" alt="">
+      <h2 class=" text-[28px]">Hello, <%=users.name%> 👋</h2>
+    </div>
+       <div class="flex gap-8 ml-3 mt-5">
+        <a class="flex gap-1 bg-gray-100 text-gray-500 py-2 px-4 rounded-lg" href=""><h2>Filters</h2><i class="ri-sound-module-line"></i></a>
+        <a class="flex gap-1 bg-gray-100 text-gray-500 py-2 px-4 rounded-lg" href=""><h2>By date <i class="ri-calendar-line"></i></h2></a>
+        <a class="flex gap-1 bg-blue-500 text-white py-2 px-4 rounded-lg" href=""><h2>Newest First <i class="ri-arrow-down-s-line"></i></h2></a>
+        <a class="flex gap-1 bg-blue-500 text-white py-2 px-4 rounded-lg" href=""><h2>Filter</h2></a>
+       </div>
+      <div class="hisabs flex items-start justify-start gap-5 ml-3">
+      <% users.posts.forEach(function(post){ %>
+        <div class=" hisab w-1/4 bg-gray-100 h-40 mt-10 rounded-lg overflow-hidden p-2">
+            <div class="nav-1 h-14 flex items-center justify-center gap-4 ">
+          <a class="flex gap-2 bg-blue-500 px-2 py-1 rounded-lg text-white" href=""><i class="ri-git-repository-private-line"></i><h2>Encrypted</h2></a>
+          <i class="ri-eye-off-line bg-gray-300 font-[500] px-3 py-1 rounded-lg text-[15px]"></i>
+          <h3 class="text-[13px] text-gray-400 ml-7 h-20 w-20 mt-10 font-[500] overflow-hidden">Created on <%= post.date %></h3>
+            </div>
+            <h4 class="text-gray-700 text-[24px] font-[500] mt-2 "><%= post.title %></h4>
+            <a class="text-[16px] text-gray-400 mt-3 inline-block ml-" href="/view/<%=post._id %>">Read More</a>
+          </div>
+      <% }) %>
+       </div>
+      </div>
+ <script src="/javascripts/parv.js"></script>
+</body>
+</html>
